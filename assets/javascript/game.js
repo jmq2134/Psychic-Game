@@ -4,32 +4,22 @@ var lettersGuessed = [];
 var numLeft = 10;
 var wins = 0;
 var losses = 0;
-var computerGuess = '';
-
-
-//computer randomly chooses a letter from alphabet
-
+var computerGuess;
 
 // When the user presses a key, it will run the following function...
 document.onkeyup = function(event) {
 
-    function computerGuessRandom(alphabet) {
-        return alphabet[Math.floor(Math.random() * alphabet.length)];
+    if (numLeft == 10) {
+        //computer randomly chooses a letter from alphabet
+        computerGuessRandom = alphabet[Math.floor(Math.random() * alphabet.length)];
     }
-    console.log(computerGuessRandom(alphabet));
-    //
-    computerGuess = computerGuessRandom(alphabet);
-    console.log(computerGuess);
-
+    computerGuess = computerGuessRandom;
 
     // Determine which key was pressed
-    var letterGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    console.log(letterGuess);
-
+    var letterGuess = event.key;
 
     // Add guess to array of guesses
     lettersGuessed.push(letterGuess.toLowerCase());
-    console.log(lettersGuessed);
 
     // Check the guessed letter against the computerGuess
 
@@ -37,16 +27,14 @@ document.onkeyup = function(event) {
         wins++;
         numLeft = 10;
         lettersGuessed = [];
-        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
     } else {
         numLeft--;
         if (numLeft == 0) {
             losses++;
             numLeft = 10;
             lettersGuessed = [];
-            var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
         }
-    };
+    }
 
     //write into HTML
 
