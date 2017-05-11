@@ -6,28 +6,33 @@ var wins = 0;
 var losses = 0;
 var computerGuess = '';
 
+
+//computer randomly chooses a letter from alphabet
+
+
 // When the user presses a key, it will run the following function...
 document.onkeyup = function(event) {
 
-    console.log(numLeft);
-    if (numLeft == 10) {
-        //computer randomly chooses a letter from alphabet
-        var computerGuessRandom = alphabet[Math.floor(Math.random() * alphabet.length)];
+    function computerGuessRandom(alphabet) {
+        return alphabet[Math.floor(Math.random() * alphabet.length)];
     }
-    computerGuess = computerGuessRandom;
+    console.log(computerGuessRandom(alphabet));
+    //
+    computerGuess = computerGuessRandom(alphabet);
     console.log(computerGuess);
-    // Determine which key was pressed
-    var letterGuess = event.key;
 
+
+    // Determine which key was pressed
+    var letterGuess = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(letterGuess);
-    console.log(computerGuess);
+
 
     // Add guess to array of guesses
     lettersGuessed.push(letterGuess.toLowerCase());
     console.log(lettersGuessed);
 
     // Check the guessed letter against the computerGuess
-    
+
     if (letterGuess == computerGuess) {
         wins++;
         numLeft = 10;
@@ -41,7 +46,7 @@ document.onkeyup = function(event) {
             lettersGuessed = [];
             var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
         }
-    }
+    };
 
     //write into HTML
 
