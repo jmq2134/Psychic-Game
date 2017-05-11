@@ -1,0 +1,20 @@
+h1 {
+	border: 1px solid black;
+	background: #F0F8FF;
+	padding: 10px;
+	text-align: center;
+}
+
+h2 {
+	font-color: red;
+	padding-left: 20px;
+}
+
+body {
+	font-family: "Verdana", Georgia, Serif;
+	background: #F0FFF0;
+}
+
+p {
+	padding-left: 40px;
+}
